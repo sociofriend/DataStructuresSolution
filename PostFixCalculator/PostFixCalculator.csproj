@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StackLibrary\StackLibrary.csproj" />
+    <ProjectReference Include="..\StackWithArrayLibrary\StackWithArrayLibrary.csproj" />
   </ItemGroup>
 
 </Project>

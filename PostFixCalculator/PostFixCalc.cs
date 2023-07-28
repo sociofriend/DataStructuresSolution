@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LinkedListLibrary;
 using StackLibrary;
+using StackWithArrayLibrary;
 
 namespace PostFixCalculator
 {
@@ -14,7 +15,8 @@ namespace PostFixCalculator
     {
 
         // stack linked list to push integers from the user input
-        private CustomStack<int> NumbersStack { get; set; } = new CustomStack<int>();
+        //private CustomStack<int> NumbersStack { get; set; } = new CustomStack<int>();
+        private CustomStackWithArray<int> NumbersStack { get; set; } = new CustomStackWithArray<int> { };
 
         // to store the result of the calculation
         public int Result { get; set; }
@@ -24,7 +26,7 @@ namespace PostFixCalculator
         /// </summary>
         public PostFixCalc()
         {
-            Result = ModifyStack(GetUserInput());
+            Result = DoCalc(GetUserInput());
         }
 
         /// <summary>
@@ -55,7 +57,7 @@ namespace PostFixCalculator
         /// </summary>
         /// <param name="expressionArray">Array of strings to store number units from the user input.</param>
         /// <returns>Integery type value as the result of the overall calculation based on user input expression.</returns>
-        private int ModifyStack(string[] expressionArray)
+        private int DoCalc(string[] expressionArray)
         {
             int result = 0;
 
@@ -65,13 +67,14 @@ namespace PostFixCalculator
                 if (int.TryParse(element, out int res))
                     NumbersStack.Push(res);
 
-                //if an operator happens, do the math
-                if (IsOperator(element))
+                    //if an operator happens, do the math
+                    if (IsOperator(element))
                 {
                     result = UseOperators(element, NumbersStack);
                     NumbersStack.Pop();
                     NumbersStack.Pop();
                     NumbersStack.Push((int)result);
+
                 }
             }
             return result;
@@ -83,12 +86,37 @@ namespace PostFixCalculator
         /// <param name="oper">Operator transferred as an argument.</param>
         /// <param name="stackNumbers">Stack of numbers.</param>
         /// <returns>Integer type value as a result of simple math operator of two last integers of the stack.</returns>
-        public int UseOperators(string oper, CustomStack<int> stackNumbers)
-        {
 
+        //public int UseOperators(string oper, CustomStack<int> stackNumbers)            
+        //{
+        //    int result = 0;
+        //    int number1 = stackNumbers.Top.Value;
+        //    int number2 = stackNumbers.Top.NextNode.Value;
+
+        //    switch (oper)
+        //    {
+        //        case "+":
+        //            result = number2 + number1;
+
+        //            break;
+        //        case "-":
+        //            result = number2 - number1;
+        //            break;
+        //        case "*":
+        //            result = number2 * number1;
+        //            break;
+        //        case "/":
+        //            result = number2 / number1;
+        //            break;
+        //    }
+        //    return result;
+        //}
+
+        public int UseOperators(string oper, CustomStackWithArray<int> stackNumbers)
+        {
             int result = 0;
-            int number1 = stackNumbers.Top.Value;
-            int number2 = stackNumbers.Top.NextNode.Value;
+            int number1 = stackNumbers.Number1;
+            int number2 = stackNumbers.Number2;
 
             switch (oper)
             {
