@@ -17,7 +17,6 @@
         static bool UseCalculator()
         {
             PostFixCalc calc = new PostFixCalc();
-            Console.WriteLine(calc.Result);
             return true;
         }
     }

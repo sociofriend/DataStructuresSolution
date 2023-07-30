@@ -11,11 +11,13 @@ public class CustomStack<T>
 {
     CustomLinkedList<T> list = new CustomLinkedList<T>();
     public CustomNode<T> Top { get; set; }
+    public int Count { get; set; }
 
     public void Push(T v)
     {
         list.AddFirst(v);
         Top = list.Head;
+        Count++;
     }
 
     public T Peek()
@@ -28,6 +30,9 @@ public class CustomStack<T>
         CustomNode<T> tempNode = list.Head;
         list.RemoveFirst();
         Top = list.Head;
+        Count--;
         return tempNode.Value;
     }
+
+
 }

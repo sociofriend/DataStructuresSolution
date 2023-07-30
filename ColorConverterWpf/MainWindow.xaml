@@ -1,0 +1,17 @@
+﻿<Window x:Class="ColorConverterWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ColorConverterWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ListBox Name ="lstBox" d:ItemsSource="{d:SampleData ItemCount=5}" BorderBrush="Blue" Height="300" Width="200" Margin="590,10,10,124"/>
+        <Button Content="UNDO" HorizontalAlignment="Left" Height="50" Width="200" Name ="undoButton" Background="Blue" Foreground="White" Margin="590,335,0,0" VerticalAlignment="Top" Click="undoButton_Click"/>
+        <Button Content="" Name="btn1" HorizontalAlignment="Left" Margin="29,10,0,0" VerticalAlignment="Top" Height="375" Width="129" Click="Button_Click"/>
+        <Button Content="" Name="btn2" HorizontalAlignment="Left" Margin="214,10,0,0" VerticalAlignment="Top" Height="375" Width="129" Click="Button_Click_1"/>
+        <Button Content="" Name="btn3" HorizontalAlignment="Left" Margin="402,10,0,0" VerticalAlignment="Top" Height="375" Width="129" Click="Button_Click_2"/>
+
+    </Grid>
+</Window>

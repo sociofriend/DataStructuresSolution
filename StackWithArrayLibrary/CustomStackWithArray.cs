@@ -31,12 +31,14 @@ namespace StackWithArrayLibrary
                 StackArray = newArray;
             }
             StackArray[Index] = v;
-            Index++;
-            Number1 = StackArray[Index-1];
-            if (Index > 1)
-            {
-                Number2 = StackArray[Index - 2];
+            if (Index >= 0)
+            { 
+                Number1 = StackArray[Index];
+                Number2 = Number1;
             }
+            if (Index >= 1)
+                Number2 = StackArray[Index - 1];
+            Index++;
         }
 
         public T Peek()
@@ -55,7 +57,9 @@ namespace StackWithArrayLibrary
                 throw new InvalidOperationException("The stack is empty");
             }
             Index--;
-            Number1 = StackArray[Index];
+
+            if(Index > 0)
+                Number1 = StackArray[Index];
             if (Index > 1)
             {
                 Number2 = StackArray[Index - 1];

@@ -21,12 +21,22 @@ namespace PostFixCalculator
         // to store the result of the calculation
         public int Result { get; set; }
 
+        //local proparty for storing valid user input
+        public string PostFixExpression { get; set; }
+        
+        //local variable for storing the converted expression (postfix -> infix)
+        public string InFixExpression { get; set; }
+
+
         /// <summary>
         /// Constructor to make the calculator work
         /// </summary>
         public PostFixCalc()
         {
             Result = DoCalc(GetUserInput());
+
+            Console.WriteLine(PostfixToInfixConverter.ConvertToInfix(PostFixExpression) + " = " + Result);
+
         }
 
         /// <summary>
@@ -42,6 +52,7 @@ namespace PostFixCalculator
 
             if (IsValid(calculator, calculator.Expression))
             {
+                PostFixExpression = calculator.Expression;
                 return calculator.ExpressionArray;
             }
             else
@@ -65,16 +76,17 @@ namespace PostFixCalculator
             {
                 //store units into numbers' array if an integer
                 if (int.TryParse(element, out int res))
+                {
                     NumbersStack.Push(res);
+                }
 
-                    //if an operator happens, do the math
-                    if (IsOperator(element))
+                //if an operator happens, do the math
+                if (IsOperator(element))
                 {
                     result = UseOperators(element, NumbersStack);
                     NumbersStack.Pop();
                     NumbersStack.Pop();
                     NumbersStack.Push((int)result);
-
                 }
             }
             return result;
@@ -87,30 +99,30 @@ namespace PostFixCalculator
         /// <param name="stackNumbers">Stack of numbers.</param>
         /// <returns>Integer type value as a result of simple math operator of two last integers of the stack.</returns>
 
-        //public int UseOperators(string oper, CustomStack<int> stackNumbers)            
-        //{
-        //    int result = 0;
-        //    int number1 = stackNumbers.Top.Value;
-        //    int number2 = stackNumbers.Top.NextNode.Value;
+        public int UseOperators(string oper, CustomStack<int> stackNumbers)
+        {
+            int result = 0;
+            int number1 = stackNumbers.Top.Value;
+            int number2 = stackNumbers.Top.NextNode.Value;
 
-        //    switch (oper)
-        //    {
-        //        case "+":
-        //            result = number2 + number1;
+            switch (oper)
+            {
+                case "+":
+                    result = number2 + number1;
 
-        //            break;
-        //        case "-":
-        //            result = number2 - number1;
-        //            break;
-        //        case "*":
-        //            result = number2 * number1;
-        //            break;
-        //        case "/":
-        //            result = number2 / number1;
-        //            break;
-        //    }
-        //    return result;
-        //}
+                    break;
+                case "-":
+                    result = number2 - number1;
+                    break;
+                case "*":
+                    result = number2 * number1;
+                    break;
+                case "/":
+                    result = number2 / number1;
+                    break;
+            }
+            return result;
+        }
 
         public int UseOperators(string oper, CustomStackWithArray<int> stackNumbers)
         {

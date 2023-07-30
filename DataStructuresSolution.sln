@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostFixCalculator", "PostFi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackWithArrayLibrary", "StackWithArrayLibrary\StackWithArrayLibrary.csproj", "{E34CBB0C-4B24-4DD5-BFEA-D542126C563C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorConverterWpf", "ColorConverterWpf\ColorConverterWpf.csproj", "{F4249D6D-7ABB-4A77-90EB-DBBCBBE87B7A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{E34CBB0C-4B24-4DD5-BFEA-D542126C563C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E34CBB0C-4B24-4DD5-BFEA-D542126C563C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E34CBB0C-4B24-4DD5-BFEA-D542126C563C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4249D6D-7ABB-4A77-90EB-DBBCBBE87B7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4249D6D-7ABB-4A77-90EB-DBBCBBE87B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4249D6D-7ABB-4A77-90EB-DBBCBBE87B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4249D6D-7ABB-4A77-90EB-DBBCBBE87B7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
