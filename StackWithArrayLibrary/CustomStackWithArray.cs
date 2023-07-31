@@ -67,15 +67,13 @@ namespace StackWithArrayLibrary
             return StackArray[Index];
         }
 
-
         void Clear()
         {
             Index = 0;
             Number1 = default(T);
             Number2 = default(T);
         }
-
-       
+   
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
             for(int i = Index; i > 0; i-- )

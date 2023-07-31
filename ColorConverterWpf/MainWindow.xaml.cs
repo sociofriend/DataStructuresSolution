@@ -25,6 +25,7 @@ public partial class MainWindow : Window
     //Button CurrentButton { get; set; }
     Stack<Button> CurrentButtonStack { get; set; } = new Stack<Button>();
 
+    //stack to store colors
     CustomStack<Color> ColorStack { get; set; } = new CustomStack<Color>();
 
     public MainWindow()
@@ -94,6 +95,7 @@ public partial class MainWindow : Window
 
         //add current list code to listbox.
         lstBox.Items.Add(newColor.ToString());
+        
         //CurrentButton = btn;
         CurrentButtonStack.Push(btn);
     }

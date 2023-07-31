@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox Name ="lstBox" d:ItemsSource="{d:SampleData ItemCount=5}" BorderBrush="Blue" Height="300" Width="200" Margin="590,10,10,124"/>
-        <Button Content="UNDO" HorizontalAlignment="Left" Height="50" Width="200" Name ="undoButton" Background="Blue" Foreground="White" Margin="590,335,0,0" VerticalAlignment="Top" Click="undoButton_Click"/>
+        <ListBox Name ="lstBox" d:ItemsSource="{d:SampleData ItemCount=5}" BorderBrush="Blue" Height="300" Width="200" Margin="575,10,25,124"/>
+        <Button Content="UNDO" HorizontalAlignment="Left" Height="50" Width="200" Name ="undoButton" Background="Blue" Foreground="White" Margin="576,335,0,0" VerticalAlignment="Top" Click="undoButton_Click"/>
         <Button Content="" Name="btn1" HorizontalAlignment="Left" Margin="29,10,0,0" VerticalAlignment="Top" Height="375" Width="129" Click="Button_Click"/>
         <Button Content="" Name="btn2" HorizontalAlignment="Left" Margin="214,10,0,0" VerticalAlignment="Top" Height="375" Width="129" Click="Button_Click_1"/>
         <Button Content="" Name="btn3" HorizontalAlignment="Left" Margin="402,10,0,0" VerticalAlignment="Top" Height="375" Width="129" Click="Button_Click_2"/>

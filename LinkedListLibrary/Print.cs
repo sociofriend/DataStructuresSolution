@@ -25,8 +25,6 @@ namespace LinkedListLibrary
             //}
         }
 
-
-
         public static void PrintNode(CustomNode<T> node)
         {
             Console.Write("Requested node: ");

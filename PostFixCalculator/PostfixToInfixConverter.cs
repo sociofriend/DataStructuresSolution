@@ -16,7 +16,6 @@ public class PostfixToInfixConverter
     /// <returns>Returns string type value representing converted expression.</returns>
     public static string ConvertToInfix(string postfixExpression)
     {
-        //Stack<string> stack = new Stack<string>();
         
         //create local variable for stack of string type elements, corresponding to expression parts.
         CustomStack<string> stack = new CustomStack<string>();

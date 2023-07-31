@@ -124,6 +124,7 @@ namespace PostFixCalculator
             return result;
         }
 
+        //overlaod of UserOperators method for using with stackWithArray
         public int UseOperators(string oper, CustomStackWithArray<int> stackNumbers)
         {
             int result = 0;
@@ -187,6 +188,7 @@ namespace PostFixCalculator
             return operatorCount == operandCount - 1;
         }
 
+        //validates if a token is operator
         private bool IsOperator(string token)
         {
             // Define the valid operators here

@@ -8,7 +8,10 @@ using System.Threading.Tasks;
 namespace LinkedListLibrary;
     public class CustomLinkedList<T> : ICollection<T>
     {
+        //local property representing Head(1st value) of the stack
         public CustomNode<T> Head { get; private set; }
+        
+        //local property representing Tail(last value) of the stack
         public CustomNode<T> Tail { get; private set; }
 
         #region ICollection
