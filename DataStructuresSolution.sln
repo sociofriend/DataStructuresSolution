@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueProject", "QueueDataSt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueLibrary", "CustomQueueLibrary\QueueLibrary.csproj", "{4BD35C1B-F3F3-4465-A198-6032A2BFE157}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueWpf", "QueueWpf\QueueWpf.csproj", "{625D25C5-F109-4EAF-B6CC-AE00BECF0D8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{4BD35C1B-F3F3-4465-A198-6032A2BFE157}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BD35C1B-F3F3-4465-A198-6032A2BFE157}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BD35C1B-F3F3-4465-A198-6032A2BFE157}.Release|Any CPU.Build.0 = Release|Any CPU
+		{625D25C5-F109-4EAF-B6CC-AE00BECF0D8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{625D25C5-F109-4EAF-B6CC-AE00BECF0D8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{625D25C5-F109-4EAF-B6CC-AE00BECF0D8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{625D25C5-F109-4EAF-B6CC-AE00BECF0D8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
