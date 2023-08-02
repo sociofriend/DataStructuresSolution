@@ -11,15 +11,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackLibrary", "StackLibrar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostFixCalculator", "PostFixCalculator\PostFixCalculator.csproj", "{2AB3D874-B198-400E-A4AD-11258F9912A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackWithArrayLibrary", "StackWithArrayLibrary\StackWithArrayLibrary.csproj", "{E34CBB0C-4B24-4DD5-BFEA-D542126C563C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackWithArrayLibrary", "StackWithArrayLibrary\StackWithArrayLibrary.csproj", "{E34CBB0C-4B24-4DD5-BFEA-D542126C563C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorConverterWpf", "ColorConverterWpf\ColorConverterWpf.csproj", "{F4249D6D-7ABB-4A77-90EB-DBBCBBE87B7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColorConverterWpf", "ColorConverterWpf\ColorConverterWpf.csproj", "{F4249D6D-7ABB-4A77-90EB-DBBCBBE87B7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueProject", "QueueDataStr\QueueProject.csproj", "{BD2B1284-CF5B-4AB4-B8B4-B3EF111ED096}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueueProject", "QueueDataStr\QueueProject.csproj", "{BD2B1284-CF5B-4AB4-B8B4-B3EF111ED096}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueLibrary", "CustomQueueLibrary\QueueLibrary.csproj", "{4BD35C1B-F3F3-4465-A198-6032A2BFE157}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueueLibrary", "CustomQueueLibrary\QueueLibrary.csproj", "{4BD35C1B-F3F3-4465-A198-6032A2BFE157}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueWpf", "QueueWpf\QueueWpf.csproj", "{625D25C5-F109-4EAF-B6CC-AE00BECF0D8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueueWpf", "QueueWpf\QueueWpf.csproj", "{625D25C5-F109-4EAF-B6CC-AE00BECF0D8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueWithArrayLibrary", "QueueWithArrayLibrary\QueueWithArrayLibrary.csproj", "{2A259584-DCA4-4FCD-9D08-51F9032098AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{625D25C5-F109-4EAF-B6CC-AE00BECF0D8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{625D25C5-F109-4EAF-B6CC-AE00BECF0D8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{625D25C5-F109-4EAF-B6CC-AE00BECF0D8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A259584-DCA4-4FCD-9D08-51F9032098AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A259584-DCA4-4FCD-9D08-51F9032098AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A259584-DCA4-4FCD-9D08-51F9032098AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A259584-DCA4-4FCD-9D08-51F9032098AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

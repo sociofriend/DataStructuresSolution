@@ -9,6 +9,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CustomQueueLibrary\QueueLibrary.csproj" />
+    <ProjectReference Include="..\LinkedListLibrary\LinkedListLibrary.csproj" />
+    <ProjectReference Include="..\QueueWithArrayLibrary\QueueWithArrayLibrary.csproj" />
   </ItemGroup>
 
 </Project>

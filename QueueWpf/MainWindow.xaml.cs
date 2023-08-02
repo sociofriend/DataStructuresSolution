@@ -1,8 +1,10 @@
 ﻿using CustomQueueLibrary;
 using LinkedListLibrary;
+using QueueWithArrayLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace QueueWpf;
 
 /// <summary>
@@ -25,19 +28,26 @@ public partial class MainWindow : Window
     //single-dimension array of Lable type items to store labels' objects.
     public Label[] lblArray { get; set; }
 
-    //custom queueLinkedList to store randomly generated numbers.
-    public CustomQueue<int> numbersQueue { get; set; }
+    ////custom queueLinkedList to store randomly generated numbers.
+    //public CustomQueue<int> numbersQueue { get; set; }
+
+    //local object of custom queueWithArray type
+    public CustomQueueWithArray<int> numbersQueue { get; set; }
 
     //conditional variable to define whether print function is called after Enqueu or Dequeue events.
     // 0 - for Enqueue, 1- for Dequeue.
     int status;
+    //int index;
 
     public MainWindow()
     {
         InitializeComponent();
 
         //initialize local properties.
-        numbersQueue = new CustomQueue<int>();
+        //numbersQueue = new CustomQueue<int>();
+        numbersQueue = new CustomQueueWithArray<int>();
+
+        //numbersQueue = new CustomQueueWithArray<int>();
         lblArray = new Label[] { lbl1, lbl2, lbl3, lbl4, lbl5 };
     }
 
@@ -64,8 +74,6 @@ public partial class MainWindow : Window
 
         //now print the hard work was done!!
         PreviewQueueNumbers(status);
-
-
     }
 
     /// <summary>
@@ -75,26 +83,39 @@ public partial class MainWindow : Window
     /// <param name="e">Non-used event's arguments.</param>
     private void Button_Click_2(object sender, RoutedEventArgs e)
     {
-        //delete first item/input of the queue (FIFO)
-        numbersQueue.Dequeue();
+        //use try-catch to handle exception in case the queue is empty
+        try
+        {
+            //delete first item/input of the queue (FIFO)
+            numbersQueue.Dequeue();
 
-        //remove first item of the listbox
-        lstBox.Items.RemoveAt(0);
+            //remove first item of the listbox
+            lstBox.Items.RemoveAt(0);
 
-        //set status to 0, meaning that the print function is called after Dequeue event was handled.
-        status = 1;
+            //set status to 0, meaning that the print function is called after Dequeue event was handled.
+            status = 1;
 
-        //now print the hard work was done!!
-        PreviewQueueNumbers(status);
+            //now print the hard work was done!!
+            PreviewQueueNumbers(status);
+
+        }
+        //relaunch the project in case the queue is empty
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception.Message);
+            InitializeComponent();
+        }
+
     }
 
     /// <summary>
-    /// Prints numbers on the label and listbox.
+    /// Prints numbers on the label and listbox. 
     /// </summary>
     /// <param name="_status">Local variable identifying if the method is invoked after 
     /// Enqueue or Dequeue event was handled.</param>
     private void PreviewQueueNumbers(int _status)
     {
+        int index = 0;
         {
             //check if the method is invoked after Enqueue or Dequeue event was handled.
             if (status == 1)
@@ -105,21 +126,44 @@ public partial class MainWindow : Window
                 {
                     lblArray[i].Content = "";
                 }
+                //int index = 0;
             }
 
             //local variable to identify the index of the label's array.
-            int index = 0;
 
-            //create local variable for first item of the queue
-            CustomNode<int> current = numbersQueue.Head;
-            
-            //where the value exists assign to respective label. Do it till the last label of th array.
-            while (current != null && index != 5)
+
+            #region Implemented with custom linked list
+
+            ////create local variable for first item of the queue
+            //CustomNode<int> current = numbersQueue.Head;
+            //index = 0;
+
+            ////where the value exists assign to respective label. do it till the last label of th array.
+            //while (current != null && index != 5)
+            //{
+            //    lblArray[index].Content = current.Value;
+            //    index++;
+            //    current = current.NextNode;
+            //}
+
+            #endregion
+
+            #region Implemented with array
+
+            foreach (int element in numbersQueue)
             {
-                lblArray[index].Content = current.Value;
-                index++;
-                current = current.NextNode;
+                if (index == 5)
+                    break;
+                if (element != null)
+                {
+                    lblArray[index].Content = element;
+                    index++;
+                }
+                else
+                    lblArray[index].Content = "";
             }
+
+            #endregion
         }
     }
 
@@ -132,6 +176,7 @@ public partial class MainWindow : Window
     {
         numbersQueue.Clear();
         lstBox.Items.Clear();
+        
         for (int i = 0; i < lblArray.Length; i++)
         {
             lblArray[i].Content = "";

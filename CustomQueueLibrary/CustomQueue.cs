@@ -61,10 +61,18 @@ public class CustomQueue<T> : IEnumerable<T>
     /// <returns>Returns the value which was removed from the queue.</returns>
     public T Dequeue()
     {
-        if (Count != null)
+        //check if queue is not empty
+        if (Count != 0)
         {
+            // if not empty do the dequeue operation
+            
+            //store current served value in local variable of T type
             T currentServedValue = queueLinkedList.Head.Value;
+            
+            //remove current served value from the queue
             queueLinkedList.RemoveFirst();
+            
+            // check if queue is not empty after removal and reassign the Head
             if (queueLinkedList.Count != 0)
             {
                 Head = queueLinkedList.Head;
@@ -74,9 +82,13 @@ public class CustomQueue<T> : IEnumerable<T>
                 Head = null;
             }
             
+            //decremnt the count of the itemsin teh queue
             Count--;
+            
+            //return the initially stored value served
             return currentServedValue;
         }
+        //if queue is empty at the moment of Dequeu event is handled throw an exception
         else
         {
             throw new Exception("Queue is empty.");
