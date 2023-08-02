@@ -56,7 +56,7 @@ public partial class MainWindow : Window
     /// </summary>
     /// <param name="sender">Enqueue button.</param>
     /// <param name="e">Non-used event's arguments.</param>
-    private void Button_Click(object sender, RoutedEventArgs e)
+    private void Button_Enqueue(object sender, RoutedEventArgs e)
 
     {
         //create Random type object to get random numbers
@@ -81,7 +81,7 @@ public partial class MainWindow : Window
     /// </summary>
     /// <param name="sender">Dequeue button.</param>
     /// <param name="e">Non-used event's arguments.</param>
-    private void Button_Click_2(object sender, RoutedEventArgs e)
+    private void Button_Dequeue(object sender, RoutedEventArgs e)
     {
         //use try-catch to handle exception in case the queue is empty
         try

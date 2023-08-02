@@ -1,9 +1,9 @@
-﻿<Window x:Class="QueueWpf.MainWindow"
+﻿<Window x:Class="QueueWPF_Classroom.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:QueueWpf"
+        xmlns:local="clr-namespace:QueueWPF_Classroom"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -21,7 +21,6 @@
         <ListBox x:Name ="lstBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="554,73,123,46" Grid.Row="1"/>
         <Button Content="Enqueue" Background="LightGreen" HorizontalAlignment="Left" Margin="46,118,0,0" VerticalAlignment="Top" Height="42" Width="89" Click="Button_Enqueue" Grid.Row="1"/>
         <Button Content="Dequeue" Background="Red" HorizontalAlignment="Left" Margin="153,118,0,0" VerticalAlignment="Top" Height="42" Width="89" Click="Button_Dequeue" Grid.Row="1"/>
-        <Button Content="CLEAR QUEUE" Name="clr" Background="Black" Foreground="White" HorizontalAlignment="Left" Margin="46,200,0,0" VerticalAlignment="Top" Height="59" Width="189" Click="clr_Click" Grid.Row="1"/>
-
+        
     </Grid>
 </Window>

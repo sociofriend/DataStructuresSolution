@@ -1,6 +1,4 @@
-﻿
-
-namespace QueueWithArrayLibrary;
+﻿namespace QueueWithArrayLibrary;
 
 public class CustomQueueWithArray<T> : IEnumerable<T>
 {
@@ -23,12 +21,12 @@ public class CustomQueueWithArray<T> : IEnumerable<T>
     }
 
     //add elements in the end of the queue (Last in last out)
-    public void Enqueue(T number)
+    public void Enqueue(T value)
     {
         //if stack is yet empty, add the element at the beginning of the array
         if (Index == 0)
         {
-            QueueArray[0] = number;
+            QueueArray[0] = value;
         }
         //if stack is not empty
         else
@@ -46,7 +44,7 @@ public class CustomQueueWithArray<T> : IEnumerable<T>
             QueueArray = newStackArray;
 
             //add the new item at the end of the new array.
-            QueueArray[QueueArray.Length - 1] = number;
+            QueueArray[QueueArray.Length - 1] = value;
         }
 
         //change local properties describing the queue

@@ -5,10 +5,10 @@ namespace CustomQueueLibrary;
 
 public class CustomQueue<T> : IEnumerable<T>
 {
-    //create a custome LinkedLust object for Queue
+    //create a custom LinkedLust object for Queue
     CustomLinkedList<T> queueLinkedList = new CustomLinkedList<T>();
 
-    //create a CustomeNode local variable for storing the current served value
+    //create a CustomNode local variable for storing the current served value
     public CustomNode<T> Head { get; set; }
     
     //count of the nodes in the queue linked list
@@ -56,7 +56,7 @@ public class CustomQueue<T> : IEnumerable<T>
     }
 
     /// <summary>
-    /// Delets/Pops first input (first in first out(FIFO)).
+    /// Deletes/Pops first input (first in first out(FIFO)).
     /// </summary>
     /// <returns>Returns the value which was removed from the queue.</returns>
     public T Dequeue()
@@ -82,7 +82,7 @@ public class CustomQueue<T> : IEnumerable<T>
                 Head = null;
             }
             
-            //decremnt the count of the itemsin teh queue
+            //decrement the count of the itemsin teh queue
             Count--;
             
             //return the initially stored value served
