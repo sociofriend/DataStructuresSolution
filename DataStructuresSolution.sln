@@ -25,6 +25,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueueWithArrayLibrary", "Qu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueWPF_Classroom", "QueueWPF_Classroom\QueueWPF_Classroom.csproj", "{119E914B-423F-4EB1-B2A5-EFC52D6AD740}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTreeLibrary", "BinaryTreeLibrary\BinaryTreeLibrary.csproj", "{188EA2CA-4FB1-49BA-B730-2FDF3229FC3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTreeProject", "BinaryTreeProject\BinaryTreeProject.csproj", "{EC5A9842-0C3A-4292-B848-33A2A08CA5DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +79,14 @@ Global
 		{119E914B-423F-4EB1-B2A5-EFC52D6AD740}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{119E914B-423F-4EB1-B2A5-EFC52D6AD740}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{119E914B-423F-4EB1-B2A5-EFC52D6AD740}.Release|Any CPU.Build.0 = Release|Any CPU
+		{188EA2CA-4FB1-49BA-B730-2FDF3229FC3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{188EA2CA-4FB1-49BA-B730-2FDF3229FC3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{188EA2CA-4FB1-49BA-B730-2FDF3229FC3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{188EA2CA-4FB1-49BA-B730-2FDF3229FC3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC5A9842-0C3A-4292-B848-33A2A08CA5DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC5A9842-0C3A-4292-B848-33A2A08CA5DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC5A9842-0C3A-4292-B848-33A2A08CA5DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC5A9842-0C3A-4292-B848-33A2A08CA5DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
