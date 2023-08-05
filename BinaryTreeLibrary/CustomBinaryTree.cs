@@ -13,6 +13,8 @@ public class CustomBinaryTree<T> where T : IComparable
     //the topmost node in a binary tree: all other nodes are descendants of the root.
     public BinaryTreeNode<T>? Root { get; set; }
 
+    private readonly IPrintHelper _printHelper;
+    
     //current node to be used in a certain operation
     public BinaryTreeNode<T> Current { get; set; }
 
@@ -21,6 +23,21 @@ public class CustomBinaryTree<T> where T : IComparable
 
     //local property to assign a node Leaf status
     public bool IsLeaf { get; private set; }
+
+    //default constructor to use delegate
+    public CustomBinaryTree()
+    {
+        
+    }
+
+    /// <summary>
+    /// Parameterized constructor to work with IPrintHelper interface
+    /// </summary>
+    /// <param name="printHelper">IPrintHelper type object</param>
+    public CustomBinaryTree(IPrintHelper printHelper)
+    {
+        _printHelper = printHelper;
+    }
 
     /// <summary>
     /// Compares to values to each other:
@@ -175,6 +192,21 @@ public class CustomBinaryTree<T> where T : IComparable
             outputDelegate(parentNode.Value.ToString() + " ");
             PreOrderTraversal(parentNode.LeftNode, outputDelegate);
             PreOrderTraversal(parentNode.RightNode, outputDelegate);
+        }
+    }
+
+
+    /// <summary>
+    /// Method overload to work with IPrintHelper Inter
+    /// </summary>
+    /// <param name="parentNode"></param>
+    public void PreOrderTraversal(BinaryTreeNode<T> parentNode)
+    {
+        if (parentNode != null)
+        {
+            _printHelper.Print(parentNode.Value.ToString() + " ");
+            PreOrderTraversal(parentNode.LeftNode);
+            PreOrderTraversal(parentNode.RightNode);
         }
     }
 
