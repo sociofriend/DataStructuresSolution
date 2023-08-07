@@ -13,16 +13,11 @@ public class CustomBinaryTree<T> where T : IComparable
     //the topmost node in a binary tree: all other nodes are descendants of the root.
     public BinaryTreeNode<T>? Root { get; set; }
 
+    //local object of IPrintHelper type
     private readonly IPrintHelper _printHelper;
     
     //current node to be used in a certain operation
     public BinaryTreeNode<T> Current { get; set; }
-
-    //the length of the longest path from the root to a leaf
-    public int Height { get; private set; }
-
-    //local property to assign a node Leaf status
-    public bool IsLeaf { get; private set; }
 
     //default constructor to use delegate
     public CustomBinaryTree()
@@ -73,7 +68,10 @@ public class CustomBinaryTree<T> where T : IComparable
     {
         // if tree is empty, create new node and set it as the root
         if (root == null)
+        {
             root = new BinaryTreeNode<T>(value);
+            Count++;
+        }
 
         //if tree is not empty
         else
@@ -83,15 +81,12 @@ public class CustomBinaryTree<T> where T : IComparable
                 //if given value is less than the root value, than pass to left child,
                 //invoke AddRec method on this child to start the comparison again.
                 root.LeftNode = AddRec(root.LeftNode, value);
-            
+
             else // (value.CompareTo(root.Value) >= 0)
                 //in case the given value is greater or equal to the root value, pass to right child,
                 //invoke AddRec method on this child to start the comparison again.
                 root.RightNode = AddRec(root.RightNode, value);
         }
-
-        //increment the count
-        Count++;
         
         //return root to pass it to class instance in project start.
         return root;

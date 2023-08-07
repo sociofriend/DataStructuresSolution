@@ -15,26 +15,26 @@ internal class Program
         IPrintHelper printHelper = new ConsolePrintHelper();
 
         // create an instance of binary tree class to hold string type values with parameterized constructor
-        CustomBinaryTree<string> PrintableTree = new CustomBinaryTree<string>(printHelper : printHelper);
+        CustomBinaryTree<string> PrintableTree = new CustomBinaryTree<string>(printHelper: printHelper);
 
         //add values
-        BuildBinaryTree(tree, "aa");
-        BuildBinaryTree(tree, "ab");
-        BuildBinaryTree(tree, "aas");
-        BuildBinaryTree(tree, "ac");
+        tree.Add("aa");
+        tree.Add("ab");
+        tree.Add("aas");
+        tree.Add("ac");
 
-        //print binary tree in its original way
-        
+        // ** print binary tree in its original way
+
         //-- create a list type object to store the lines
         List<string> outputLines = new List<string>();
-        
+
         //starting from the root, add each node as new line.lambda expression
         tree.PrintBinaryTree(tree.Root, line => outputLines.Add(line));
 
         //loop in the list object and print each line.
         foreach (var line in outputLines)
         {
-            Console.WriteLine("\n"+line);
+            Console.WriteLine("\n" + line);
         }
 
         //print Traversal pre-order with delegate
@@ -62,7 +62,8 @@ internal class Program
         tree.PostOrderTraversal(tree.Root, HandleOutput);
 
         //check if tree contains "ab";
-        Console.WriteLine("\n" + tree.Contains("ab"));
+        Console.WriteLine("\nTree contains ab: " + tree.Contains("ab"));
+        Console.WriteLine($"\n {tree.Count} nodes in the tree.");
     }
 
     /// <summary>
