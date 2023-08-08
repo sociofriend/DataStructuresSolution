@@ -133,6 +133,7 @@ public class CustomBinaryTree<T> where T : IComparable
                 return root.RightNode;
             else if (root.RightNode == null)
                 return root.LeftNode;
+            
             //in case the parent has two children or does not have any
             //MinValue() method is invoked for right child to find the minimum value
             //among values greater than the parent node.value and returns it in the current
