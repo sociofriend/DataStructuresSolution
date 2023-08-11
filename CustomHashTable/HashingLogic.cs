@@ -48,7 +48,7 @@ public class HashingLogic
                 sbString = input.Substring(index, input.Length - index);
             }
             
-            //make convertion with 2 phases: 3symbols to binary-string value, binary-string into decimal-> string
+            //make conversion with 2 phases: 3symbols to binary-string value, binary-string into decimal-> string
             //return string value and concatenate with stringResult variable
             stringResult += BinaryToDecimal(FourSymbolsToBinary(sbString));
 
@@ -80,6 +80,7 @@ public class HashingLogic
     /// <returns>Returns string type value representing final concatenated value of the given string value.</returns>
     private string FourSymbolsToBinary(string fourSymbols)
     {
+        fourSymbols = Reverse(fourSymbols);
         //string type local variable to represent concatenated result
         string stringResult = string.Empty;
 

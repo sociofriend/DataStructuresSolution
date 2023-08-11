@@ -16,6 +16,7 @@ public class Program
         Console.Write("Input text for hashing: ");
         //run the hashing logic
         HashingLogic hashText = new HashingLogic(Console.ReadLine());
+        
 
         // print final result of the calculation.
         Console.WriteLine("Your output: " + hashText.FinalCode);
