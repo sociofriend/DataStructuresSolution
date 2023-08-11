@@ -1,4 +1,6 @@
 ﻿using BinaryTreeLibrary;
+using System.Xml.Linq;
+
 namespace BinaryTreeProject;
 
 internal class Program
@@ -7,6 +9,7 @@ internal class Program
     {
         // create an instance of binary tree class to hold string type values with default constructor
         CustomBinaryTree<string> tree = new CustomBinaryTree<string>();
+        //CustomBinaryTree<int> tree = new CustomBinaryTree<int>();
 
         /// <summary>
         /// Creates an instance of the <see cref="IPrintHelper"/> interface and assigns it
@@ -23,13 +26,17 @@ internal class Program
         tree.Add("aas");
         tree.Add("ac");
 
+        //tree.Add(1);
+        //tree.Add(2);
+        //tree.Add(3);
+        //tree.Add(4);
+        //tree.Add(5);
+
         // ** print binary tree in its original way
 
         //-- create a list type object to store the lines
         List<string> outputLines = new List<string>();
 
-        //starting from the root, add each node as new line.lambda expression
-        tree.PrintBinaryTree(tree.Root, line => outputLines.Add(line));
 
         //loop in the list object and print each line.
         foreach (var line in outputLines)
@@ -37,16 +44,8 @@ internal class Program
             Console.WriteLine("\n" + line);
         }
 
-        //print Traversal pre-order with delegate
-        Console.Write("\n\nTraversal pre-order (Delegate implementation of print function): ");
-
-        // Perform a pre-order traversal on the binary tree with the specified root node
-        // and use the HandleOutput method to process each visited node's value.
-        tree.PreOrderTraversal(tree.Root, HandleOutput);
-
-
         //print Traversal pre-order with Interface
-        Console.Write("\n\nTraversal pre-order (Interface implementation of print function): ");
+        Console.Write("\n\nTraversal pre-order: ");
 
         // Perform a pre-order traversal on the printable binary tree with its root node,
         // potentially producing a formatted tree structure as output.
@@ -62,8 +61,8 @@ internal class Program
         tree.PostOrderTraversal(tree.Root, HandleOutput);
 
         //check if tree contains "ab";
-        Console.WriteLine("\nTree contains ab: " + tree.Contains("ab"));
-        Console.WriteLine($"\n {tree.Count} nodes in the tree.");
+        Console.WriteLine("\n\nTree contains \"ab\": " + tree.Contains("ab"));
+        Console.WriteLine($"\n{tree.Count} nodes in the tree.");
     }
 
     /// <summary>

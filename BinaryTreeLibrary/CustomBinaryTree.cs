@@ -7,6 +7,9 @@ public delegate void OutputDelegate(string output);
 public class CustomBinaryTree<T> where T : IComparable
 
 {
+    //list for storing all values of the tree
+    public List<T> Values { get; set; }
+
     //number of nodes included in the tree
     public int Count { get; private set; } = 0;
 
@@ -15,14 +18,14 @@ public class CustomBinaryTree<T> where T : IComparable
 
     //local object of IPrintHelper type
     private readonly IPrintHelper _printHelper;
-    
+
     //current node to be used in a certain operation
     public BinaryTreeNode<T> Current { get; set; }
 
     //default constructor to use delegate
     public CustomBinaryTree()
     {
-        
+        Values = new List<T>();
     }
 
     /// <summary>
@@ -48,14 +51,57 @@ public class CustomBinaryTree<T> where T : IComparable
     }
 
     /// <summary>
-    /// Calls local method to add a generic type object to tree,
-    /// taking into account the root.
+    /// Checks if the value is not present in the values' list, then adds it, and creates new tree.
     /// </summary>
     /// <param name="value">Generic type value to be added to the tree.</param>
     public void Add(T value)
     {
-        Root = AddRec(Root, value);
+        //check if the value is not already in the values' tree
+        if (!Values.Contains(value))
+        {
+           //if not, addd the value to the list, sort it
+            Values.Add(value);
+            Values.Sort();
+
+            //crate new tree and reassign the root
+            Root = AddValuesToTree(Values);
+            
+            //increment the count of the tree
+            Count++;
+        }
     }
+
+    /// <summary>
+    /// Creates new binary tree: gets middle value as root, and adds values bigger and less than middle value to the tree.
+    /// </summary>
+    /// <param name="values">List of generic type values representing all values of the tree.</param>
+    /// <returns>Returns root node.</returns>
+    private BinaryTreeNode<T> AddValuesToTree(List<T> values)
+    {
+        //find the middle value
+        //in case of even numbers
+        int count = values.Count;        
+        int middleIndex = count / 2;
+        
+        //assign the root the middle value carry-ing new node
+        Root = new BinaryTreeNode<T>(values[middleIndex]);
+        
+        //add values bigger than the middle value to the tree
+        for (int i = middleIndex + 1; i < count; i++)
+        {
+            Root = AddRec(Root, values[i]);
+        }
+
+        //add values less than the middle value to the tree
+        for (int i = middleIndex - 1; i >= 0; i--)
+        {
+            Root = AddRec(Root, values[i]);
+        }
+
+        //return the reassigned root
+        return Root;
+    }
+
 
     /// <summary>
     /// Adds the given value to the tree comparing with existing values 
@@ -70,7 +116,6 @@ public class CustomBinaryTree<T> where T : IComparable
         if (root == null)
         {
             root = new BinaryTreeNode<T>(value);
-            Count++;
         }
 
         //if tree is not empty
@@ -87,11 +132,11 @@ public class CustomBinaryTree<T> where T : IComparable
                 //invoke AddRec method on this child to start the comparison again.
                 root.RightNode = AddRec(root.RightNode, value);
         }
-        
+
         //return root to pass it to class instance in project start.
         return root;
     }
-    
+
     /// <summary>
     /// Invokes local method to add the given value to the tree, taking into account the root.
     /// </summary>
@@ -117,13 +162,13 @@ public class CustomBinaryTree<T> where T : IComparable
 
         //compare given value with the root value
         //if given value is less than root value, pass to left child.
-        if (value.CompareTo(root.Value) < 0)    
+        if (value.CompareTo(root.Value) < 0)
             root.LeftNode = RemoveRec(root.LeftNode, value);
 
         //if given value is greate than root value, pass to right child
         else if (value.CompareTo(root.Value) > 0)
             root.RightNode = RemoveRec(root.RightNode, value);
-        
+
         //if the given value matches the node.value look at the children.
         else
         {
@@ -133,13 +178,13 @@ public class CustomBinaryTree<T> where T : IComparable
                 return root.RightNode;
             else if (root.RightNode == null)
                 return root.LeftNode;
-            
+
             //in case the parent has two children or does not have any
             //MinValue() method is invoked for right child to find the minimum value
             //among values greater than the parent node.value and returns it in the current
             //node's place.
             root.Value = MinValue(root.RightNode);
-            
+
             //and then remove the duplicates of the parent node.
             root.RightNode = RemoveRec(root.RightNode, value);
         }
@@ -158,18 +203,18 @@ public class CustomBinaryTree<T> where T : IComparable
     {
         //create a temporary variable of generic type
         T minValue = node.Value;
-        
+
         //while current node's leftNode is not null
         //(left nodes carry values less than the root)
         while (node.LeftNode != null)
         {
             //reassign temporary variable with less value.
             minValue = node.LeftNode.Value;
-            
+
             //reassign the current node to its non-null nextNode.
             node = node.LeftNode;
         }
-        
+
         return minValue;
     }
 
@@ -241,51 +286,11 @@ public class CustomBinaryTree<T> where T : IComparable
     }
 
     /// <summary>
-    /// Prints binary tree itself. Takes as argument root mode, depth of 
-    /// the tree (starting from zero, as the operation starts from the root),
-    /// as well as a boolean type custom argument showing if the node is the last one in the tree in certain path.
-    /// </summary>
-    /// <param name="root">BinaryTreeNode<T> type node topmost of the tree.</param>
-    /// <param name="output">Delegate sending out string type values. Used to avoid Console.WriteLine in Library.</param>
-    /// <param name="depth">Levels of the tree. Length of the longest path of the tree.</param>
-    /// <param name="isLast">Boolean type variable identifying if the node is the last one in the tree.</param>
-    public void PrintBinaryTree(BinaryTreeNode<T> root, Action<string> output, int depth = 0, bool isLast = true)
-    {
-        //stop the operation if the tree is empty.
-        if (root == null)
-            return;
-
-        // create indentation based on depth
-        string indent = new string(' ', depth * 4);
-
-        // Create the formatted node string
-        string nodeString = indent;
-        if (isLast)
-        {
-            nodeString += "└── ";
-            indent += "    ";
-        }
-        else
-        {
-            nodeString += "├── ";
-            indent += "│   ";
-        }
-        nodeString += root.Value.ToString();
-
-        // Invoke the provided output delegate
-        output(nodeString);
-
-        // Print left and right subtrees recursively
-        PrintBinaryTree(root.LeftNode, output, depth + 1, false);
-        PrintBinaryTree(root.RightNode, output, depth + 1, true);
-    }
-
-    /// <summary>
     /// Shows if the tree contains the given value.
     /// </summary>
     /// <param name="value">Generic type value.</param>
     /// <returns>Returns boolean type value.</returns>
-    public bool Contains( T value)
+    public bool Contains(T value)
     {
         return ContainsRec(Root, value);
     }
