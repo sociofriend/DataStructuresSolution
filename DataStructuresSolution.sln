@@ -29,9 +29,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryTreeLibrary", "Binary
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryTreeProject", "BinaryTreeProject\BinaryTreeProject.csproj", "{EC5A9842-0C3A-4292-B848-33A2A08CA5DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomHashTable", "CustomHashTable\CustomHashTable.csproj", "{568323ED-F97E-4657-982D-37BBC2489A04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomHashTable", "CustomHashTable\CustomHashTable.csproj", "{568323ED-F97E-4657-982D-37BBC2489A04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTableProject", "HashTableProject\HashTableProject.csproj", "{7E061697-C65D-4834-8CE3-405D4C81DEA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashTableProject", "HashTableProject\HashTableProject.csproj", "{7E061697-C65D-4834-8CE3-405D4C81DEA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFoldingHash", "MyFoldingHash\MyFoldingHash.csproj", "{7ED5ACF3-7F73-4D6D-A742-1466A7FE913E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{7E061697-C65D-4834-8CE3-405D4C81DEA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E061697-C65D-4834-8CE3-405D4C81DEA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E061697-C65D-4834-8CE3-405D4C81DEA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ED5ACF3-7F73-4D6D-A742-1466A7FE913E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ED5ACF3-7F73-4D6D-A742-1466A7FE913E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ED5ACF3-7F73-4D6D-A742-1466A7FE913E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ED5ACF3-7F73-4D6D-A742-1466A7FE913E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
