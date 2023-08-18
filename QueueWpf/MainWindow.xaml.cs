@@ -34,7 +34,7 @@ public partial class MainWindow : Window
     //local object of custom queueWithArray type
     public CustomQueueWithArray<int> numbersQueue { get; set; }
 
-    //conditional variable to define whether print function is called after Enqueu or Dequeue events.
+    //conditional variable to define whether print function is called after Enqueue or Dequeue events.
     // 0 - for Enqueue, 1- for Dequeue.
     int status;
     //int index;

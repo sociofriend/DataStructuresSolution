@@ -45,6 +45,7 @@ public partial class MainWindow : Window
         ChangeButtonColor(btn1);
     }
 
+
     /// <summary>
     /// Event handler for which is called when the corresponding button is clicked.
     /// </summary>
